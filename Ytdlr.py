@@ -1,7 +1,12 @@
-from pytube import YouTube
 pac=input('Do you have installed the colorama and cfonts??\ty/n\t')
-
-if pac=='n':
+pacins=input("Do you want the embedded pacages installed?\ty/n")
+import subprocess
+import importlib
+import sys
+def install(i):
+  subprocess.call(['pip','install',i])
+  #if you do not want packages installed 
+if pac and pacins=='n':
 	def prompt1(sel1):
 		while sel1 not in range (0,len(form)):
 			print("Enter valid index!!!!!\t")
@@ -9,6 +14,8 @@ if pac=='n':
 		return sel1
 
 	print("\t\t\t\t\t\\tYoutube downloader")
+	install('pytube3')
+	from pytube import YouTube
 	yt=YouTube(input(f"Enter the URL ::\t"))
 	print(f"Conforming the video title:{yt.title}")
 	print(f"the foloowing ideo fromats are available: ")
@@ -41,23 +48,24 @@ if pac=='n':
 			if helf=='y':
 				print("\t\t\t\t\t\tTry selecting other video resolutions\n\t\t\t\t\tCheck the path of the destination ")
 else:
-
+  #if you do not have package and want to install
+	if pacins=='y' and pac=='n':
+		for i in ['pytube3','pdm','colorama']:
+			install(i)
+ #if you do have package 
+	from pytube import YouTube
 	from colorama import Fore, Back, Style,init
 	from cfonts import render, say
 	output1 = render('YouTube', colors=['red', 'white'], align='center',size=[158,48],line_height=1)
-
 	output2 = render('Downloader', colors=['red', 'white'], align='center',size=[158,48],line_height=1)
-
 	compl = render('Download sucessful', colors=['green', 'yellow'], align='center',size=[168,50],line_height=1)
 	failed = render('Download Failed', colors=['green', 'white'], align='center',size=[158,48],line_height=2)
 	sad = render(':(', colors=['cyan'], align='center',size=[158,50],line_height=1)
-
 	def prompt1(sel1):
-		while sel1 not in range (0,len(form)):
-			print(Fore.RED+"Enter valid index!!!!!\t"+Fore.RESET)
-			sel1=eval(input(f"enter the video format index:"))
-		return sel1
-
+			while sel1 not in range (0,len(form)):
+				print(Fore.RED+"Enter valid index!!!!!\t"+Fore.RESET)
+				sel1=eval(input(f"enter the video format index:"))
+			return sel1
 	print(output1+"\n"+output2)
 	init()
 
@@ -102,6 +110,3 @@ else:
 
 
 
-
-
-	
