@@ -1,5 +1,5 @@
-pac=input('Do you have installed the colorama and cfonts??\ty/n\t')
-pacins=input("Do you want the embedded pacages installed?\ty/n")
+pac=input('Do you have colorama and pdm installed the??\ty/n\t')
+pacins=input("Do you want the embedded packages installed?\ty/n")
 import subprocess
 import importlib
 import sys
@@ -102,9 +102,9 @@ else:
 		except Exception as e:
 			print(Fore.WHITE + Back.RED +f"failure due to:\t{e}"+Back.RESET)
 			print(failed+"\n"+sad)
-			helf=input('Would you lie suggestions??\t y/n\t')
+			helf=input('Would you like additional help??\t y/n\t')
 			if helf=='y':
-				print(Fore.YELLOW+"\t\t\t\t\t\tTry selecting other video resolutions\n\t\t\t\t\tCheck the path of the destination ")
+				print(Fore.YELLOW+"\t\t\t\t\t\tTry selecting other video resolutions\n\t\t\t\t\tCheck the path of the destination you want the file to e saed")
 
 
 
